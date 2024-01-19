@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect
 import datetime
+from django.views import View # vistas basadas en clase
 
 # Create your views here.
 
@@ -25,6 +26,6 @@ def entry_list(request):
 
 
 def redirect_back_home(request):
-    return redirect('/entries/1')
+    return redirect('hhtp://google.com')
 
 
