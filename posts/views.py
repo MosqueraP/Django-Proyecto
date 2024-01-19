@@ -1,18 +1,19 @@
 from django.http import HttpResponse, HttpResponseNotFound
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import datetime
 
 # Create your views here.
 
-def dummy_view(request):
+def dummy_view(request, id):
     now = datetime.datetime.now()
-    html = '''<html>
+    html = f'''<html>
                 <body>
                     <h1>Hola mundo</h1>
                     <p>La fecha actual es:</p>
-                        <p>{}</p>
+                        <p>Fecha Hoy: {now}</p>
+                        <p>id: {id}</p>
                     </body>
-                </html>'''.format(now)
+                </html>'''
     return HttpResponse(html)
 
 def status_code_view(request):
@@ -20,6 +21,10 @@ def status_code_view(request):
 
 
 def entry_list(request):
-    return render(request, 'posts/entry_list.html', {})
+    return render(request, 'posts/entry_list.html')
+
+
+def redirect_back_home(request):
+    return redirect('/entries/1')
 
 
