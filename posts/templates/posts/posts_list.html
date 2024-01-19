@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,16 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Post: pagina Web Howards</h1>
     <ul>
         {% for post in Posts %}
-            <li>{{ post }}</li>
+            <li>{{ post.headline|title }}</li>
+            <span>{{ post.pub_date }}</span>
         {% endfor %}
         
+        {% if request.user.is_authenticated %}
+        autenticado  
+        <li>{{ post.pub_date }}</li>
+
+        {% else %}
+        not autenticado
+        
+        {% endif %}
+
         {{ nevVariable }}
     </ul>
-    
 </body>
 </html>
-
-
