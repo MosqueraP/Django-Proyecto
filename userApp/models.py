@@ -16,7 +16,7 @@ STATUS_CHOISES = (
 )
 class Website(models.Model):
     name = models.CharField(max_length=50)
-    url = models.URLField()
+    url = models.URLField(unique=True)
     release_date = models.DateField()
     reting = models.IntegerField()
     status = models.CharField(choices=STATUS_CHOISES, max_length=1)
