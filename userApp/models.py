@@ -4,7 +4,7 @@ from django.db import models
 class User(models.Model):
     firs_name = models.CharField(max_length=30, verbose_name='Nombre')
     lasts_name = models.CharField(max_length=30, verbose_name='Apellido')
-    cars = models.ManyToManyField(verbose_name='Carros del usuario')
+    cars = models.ManyToManyField('car', verbose_name='Carros del usuario')
 
     def __str__(self):
         return self.firs_name 
