@@ -21,3 +21,7 @@ class Website(models.Model):
     reting = models.IntegerField()
     status = models.CharField(choices=STATUS_CHOISES, max_length=1)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
+class Car(models.Model):
+    name = models.CharField(max_length=40, primary_key=True)
