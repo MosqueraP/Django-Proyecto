@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.shortcuts import redirect
 # Create your models here.
 
 class Blog(models.Model):
@@ -29,5 +29,10 @@ class Entry(models.Model):
 
     def __str__(self):
         return self.headline
+    
+
+    def get_absolute_url(self):
+        return redirect(reversed('entries:entry-detail', kwargs={'id':self.id}))
+    
     
 
